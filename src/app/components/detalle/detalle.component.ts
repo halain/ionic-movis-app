@@ -54,7 +54,7 @@ export class DetalleComponent implements OnInit {
       })
   }
 
-  dismiss(event) {
+  dismiss() {
     this.modalController.dismiss({
       clickFavorito: this.clickFavorito
     });
