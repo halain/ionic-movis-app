@@ -12,7 +12,7 @@ export class SlideshowBackdropComponent implements OnInit {
   @Input() peliculas: Pelicula[] = [];
 
   slideOpts = {
-    slidesPerView: 1.08, //muetra una parte del siguiente slide que se muestra a la derecha
+    slidesPerView: 1.08, //muestra una parte del siguiente slide que se muestra a la derecha
     freeMode: true, //el slide se mueve seguido, en false se mueve exacto por cada card
   };
 

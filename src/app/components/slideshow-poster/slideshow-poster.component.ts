@@ -14,8 +14,9 @@ export class SlideshowPosterComponent implements OnInit {
   @Output() loadData = new EventEmitter<boolean>();
 
   slideOpts = {
-    slidesPerView: 3.3, 
-    freeMode: true  
+    slidesPerView: 3.1, 
+    freeMode: true,
+    spaceBetween: -10 
   }
   
 

@@ -8,6 +8,7 @@ import { SlideshowPosterComponent } from './slideshow-poster/slideshow-poster.co
 import { SlideshowBackdropComponent } from './slideshow-backdrop/slideshow-backdrop.component';
 import { SlideshowParesComponent } from './slideshow-pares/slideshow-pares.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { VideoTrailerComponent } from './video-trailer/video-trailer.component';
 
 
 
@@ -17,12 +18,14 @@ import { DetalleComponent } from './detalle/detalle.component';
     SlideshowPosterComponent,
     SlideshowParesComponent,
     DetalleComponent,
+    VideoTrailerComponent
   ],
   exports:[
     SlideshowBackdropComponent,
     SlideshowPosterComponent,
     SlideshowParesComponent,
     DetalleComponent,
+    VideoTrailerComponent
   ],
   imports: [
     CommonModule,

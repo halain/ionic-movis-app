@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Avances</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        Cerrar
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+ 
+ 
+<ion-list>
+  <ion-item *ngFor="let peli of peliculas" (click)="ver(peli.key)">
+    <ion-button  expand="block"  slot="start">
+      <ion-icon slot="icon-only" name="play-outline"></ion-icon>
+    </ion-button>
+    <ion-label>{{peli.name}}</ion-label>
+  </ion-item>
+  
+</ion-list>
+
+
+</ion-content>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http';
-import { RespuestaMDB, PeliculaDetalle, RespuestaCredits, Genre } from '../interfaces/interfaces';
+import { RespuestaMDB, PeliculaDetalle, RespuestaCredits, Genre, RespuestaVideoMDB } from '../interfaces/interfaces';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
@@ -17,6 +17,7 @@ export class MoviesService {
 
   private popularesPage = 0;
   generos: Genre[] = [];
+  tipoVideo: string[] = ["Trailer","Teaser", "Clip","Featurette", "Behind the Scenes", "Bloopers"];
 
   constructor(private http: HttpClient) { }
 
@@ -90,6 +91,11 @@ export class MoviesService {
       }, err => reject('Error al cargar generos')
       );
     });   
+  }
+
+  getVideo(id: any){
+    const query = `/movie/${id}/videos?a=1`;
+    return this.ejecutarQuery<RespuestaVideoMDB>(query);
   }
 
 

@@ -1,13 +1,26 @@
-<ion-content color="dark" class="animate__animated animate__fadeIn faster">
+<ion-header [translucent]="true" class="ion-no-border" >
+  
+  <ion-toolbar >
+    <ion-icon slot="end" name="moon"></ion-icon>
+      <ion-toggle slot="end" 
+                  [(ngModel)]="darkMode" 
+                  (ionChange)="changeColor()" 
+                  mode="md">
+      </ion-toggle>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true" class="animate__animated animate__fadeIn faster">
 
   <ion-grid fixed>
     <ion-row>
       <ion-col>
-        <h3>Películas Recientes</h3>
+          <h3>Películas Recientes</h3>        
       </ion-col>
     </ion-row>
+    <app-slideshow-backdrop [peliculas]="peliculasRecientes"></app-slideshow-backdrop>
   </ion-grid>
-  <app-slideshow-backdrop [peliculas]="peliculasRecientes"></app-slideshow-backdrop>
 
   <ion-grid fixed>
     <ion-row>
@@ -27,7 +40,6 @@
     </ion-row>
   </ion-grid>
   <app-slideshow-pares [peliculas]="peliculasPopulares" (cargarMas)="cargarMasPopulares()"></app-slideshow-pares>
-
 
 </ion-content>
 

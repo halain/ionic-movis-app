@@ -106,3 +106,23 @@ export interface PeliculasFavorito {
   genero: string;
   peliculas?: PeliculaDetalle[];
 }
+
+
+
+
+
+export interface RespuestaVideoMDB {
+  id: number;
+  results: PeliculaVideo[];
+}
+
+export interface PeliculaVideo {
+  id?: string;
+  iso_639_1?: string;
+  iso_3166_1?: string;
+  key?: string;
+  name?: string;
+  site?: string;
+  size?: number;
+  type?: string;
+}

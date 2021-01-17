@@ -1,10 +1,16 @@
 <ion-slides  [options]="slideOpts">
 
   <ion-slide *ngFor="let pelicula of peliculas" >
-    <ion-card (click)="verDetalle( pelicula.id )" mode="md"  class="poste" color="dark">
+    <ion-card (click)="verDetalle( pelicula.id )" mode="md"  class="poster" >
       <img  class="poster"
             [src]="pelicula.poster_path | imagen " />
+            
     </ion-card>
+    
+    <ion-label class="vote-average">
+      <ion-icon slot="icon-only" name="star-half-outline"></ion-icon>
+      {{pelicula.vote_average}}
+    </ion-label>
   </ion-slide>
   
 </ion-slides>  

@@ -5,9 +5,13 @@
     <ion-row>
 
       <ion-col size="12" *ngFor="let pelicula of peliculaPares">
-        <ion-card (click)="verDetalle( pelicula.id )" mode="md"  class="poster" color="dark">
+        <ion-card (click)="verDetalle( pelicula.id )" mode="md"  class="poster" >
           <img  class="poster"
                 [src]="pelicula.poster_path | imagen " />
+                <ion-label class="vote-average">
+                  <ion-icon slot="icon-only" name="star-half-outline"></ion-icon>
+                  {{pelicula.vote_average}}
+                </ion-label>
         </ion-card>
       </ion-col>
 
@@ -25,4 +29,3 @@
   </ion-slide>
   
 </ion-slides>  
-

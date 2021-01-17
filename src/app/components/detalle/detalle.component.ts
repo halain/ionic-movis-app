@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { MoviesService } from '../../services/movies.service';
 import { PeliculaDetalle, Crew, Cast } from '../../interfaces/interfaces';
 import { DataLocalService } from '../../services/data-local.service';
+import { VideoTrailerComponent } from '../video-trailer/video-trailer.component';
 
 @Component({
   selector: 'app-detalle',
@@ -28,11 +29,9 @@ export class DetalleComponent implements OnInit {
               private moviesService: MoviesService,
               private dataLocalService: DataLocalService  ) { }
 
-  ngOnInit() {
-
+  ngOnInit() {    
     this.dataLocalService.existePeliculaEnFav(this.id)
       .then( existe => this.esFavorito = (existe) ? 'heart' : 'heart-outline' );
-    
     this.getDetalle();
     this.getActores();
   }
@@ -41,7 +40,7 @@ export class DetalleComponent implements OnInit {
   getDetalle(){
     this.moviesService.getPeliculaDetalle(this.id)
       .subscribe( resp => {
-        //console.log('Pelicula-Detalle', resp);
+        console.log('Pelicula-Detalle', resp);
         this.pelicula = resp;
       })
   }
@@ -49,7 +48,7 @@ export class DetalleComponent implements OnInit {
   getActores(){
     this.moviesService.getPeliculaActores(this.id)
       .subscribe( resp => {
-        //console.log('Pelicula-Actores',resp);
+        console.log('Pelicula-Actores',resp);
         this.actores = resp.cast;
       })
   }
@@ -64,6 +63,18 @@ export class DetalleComponent implements OnInit {
     this.clickFavorito = true;
     const existe = this.dataLocalService.guardarPeliculaFav(this.pelicula);
     this.esFavorito = (existe) ? 'heart' : 'heart-outline';    
+  }
+
+
+  async verTrailer() {
+    const modal = await this.modalController.create({
+      component: VideoTrailerComponent,
+      cssClass: "my-custom-class",
+      componentProps: {
+        id: this.id
+      },
+    });
+    await modal.present();
   }
 
 
