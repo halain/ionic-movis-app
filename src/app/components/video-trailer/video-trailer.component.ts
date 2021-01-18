@@ -3,7 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { PeliculaVideo } from '../../interfaces/interfaces';
 import { MoviesService } from '../../services/movies.service';
 import { environment } from '../../../environments/environment';
-//import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
 const youtubeUrl = environment.youtubeUrl;
 
@@ -17,9 +17,14 @@ export class VideoTrailerComponent implements OnInit {
   @Input() id: string; 
   peliculas: PeliculaVideo[] = [];
 
+  sliderOpts = {
+    allowSlidePrev: false,
+    allowSlideNext: false,
+  }
+
   constructor(private modalController: ModalController,
               private moviesService: MoviesService,
-              //private youtube: YoutubeVideoPlayer
+              private youtube: YoutubeVideoPlayer
               ) { 
                                 
               }
@@ -40,8 +45,8 @@ export class VideoTrailerComponent implements OnInit {
 
   ver(key: string){
     const url = `${youtubeUrl}${key}`
-    console.log(url);
-   // this.youtube.openVideo(key);
+    //console.log(url);
+    this.youtube.openVideo(key);
   }
 
   
